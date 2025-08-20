@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Poetic Mind</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+      min-height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* 背景星星效果 */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(2px 2px at 20px 30px, rgba(88, 177, 116, 0.5), transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(13, 252, 97, 0.5), transparent),
+        radial-gradient(1px 1px at 90px 40px, rgba(225, 189, 9, 0.6), transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(216, 1, 117, 0.5), transparent),
+        radial-gradient(2px 2px at 160px 30px, rgba(218, 12, 110, 0.5), transparent),
+        radial-gradient(1px 1px at 200px 60px, rgba(149, 77, 111, 0.1), transparent),
+        radial-gradient(2px 2px at 240px 90px, rgba(148, 237, 13, 0.5), transparent);
+      background-repeat: repeat;
+      background-size: 250px 100px;
+      animation: twinkle 4s ease-in-out infinite alternate;
+      z-index: 1;
+    }
+
+    @keyframes twinkle {
+      0% { opacity: 0.3; }
+      100% { opacity: 0.8; }
+    }
+
+    /* 十六进制代码背景 */
+    body::after {
+      content: '58b1747c 0dfc6175 e1bd0991 d801758 da0c6ee 954d6f19 94ed0d84';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.1);
+      opacity: 0.3;
+      z-index: 0;
+      pointer-events: none;
+      transform: rotate(-15deg);
+      letter-spacing: 20px;
+      line-height: 40px;
+      white-space: pre-wrap;
+    }
+
+    .screen {
+      display: none;
+      position: relative;
+      z-index: 10;
+      min-height: 100vh;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .active {
+      display: flex !important;
+    }
+    
+    .screen.active {
+      display: flex !important;
+    }
+
+    /* 中央模态窗口 */
+    .modal {
+      background: rgba(20, 20, 20, 0.8);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 1000px; /*首页绿色框的宽度*/
+      width: 100%;
+      text-align: center;
+      position: relative;
+      border: 1px solid rgba(88, 177, 116, 0.3);
+      box-shadow: 0 0 30px rgba(88, 177, 116, 0.2);
+    }
+
+    /* 顶部图标 */
+    .top-icons {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+    }
+
+    .icon {
+      color: #58b174;
+      font-size: 20px;
+      opacity: 0.8;
+    }
+
+    /* 主图标 */
+    .main-icon {
+      font-size: 60px;
+      color: #58b174;
+      margin-bottom: 20px;
+      text-shadow: 0 0 20px rgba(88, 177, 116, 0.5);
+    }
+
+    /* 标题样式 */
+    h1 {
+      color: #58b174;
+      font-size: 3.5em;
+      font-weight: bold;
+      margin-bottom: 15px;
+      text-shadow: 0 0 10px rgba(88, 177, 116, 0.3);
+    }
+
+    .subtitle {
+      color: #cccccc;
+      font-size: 1.5em;
+      margin-bottom: 8px;
+    }
+
+    .subtitle-italic {
+      color: #cccccc;
+      font-size: 1.3em;
+      font-style: italic;
+      margin-bottom: 30px;
+    }
+
+    .instruction {
+      color: #cccccc;
+      font-size: 1.6em;
+      margin-bottom: 30px;
+    }
+
+    /* 传感器图形 */
+    .sensor-area {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 30px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sensor-outer {
+      width: 100%;
+      height: 100%;
+      border: 3px solid #2d5a3d;
+      border-radius: 50%;
+      position: absolute;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .sensor-inner {
+      width: 80px;
+      height: 80px;
+      border: 2px solid #58b174;
+      border-radius: 50%;
+      position: absolute;
+      animation: pulse 2s ease-in-out infinite 0.5s;
+    }
+
+    .sensor-center {
+      width: 20px;
+      height: 20px;
+      background: #58b174;
+      border-radius: 50%;
+      position: absolute;
+      box-shadow: 0 0 20px rgba(88, 177, 116, 0.8);
+      animation: glow 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.7; }
+      50% { transform: scale(1.1); opacity: 1; }
+    }
+
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(88, 177, 116, 0.8); }
+      50% { box-shadow: 0 0 30px rgba(88, 177, 116, 1); }
+    }
+
+    .status-text {
+      color: #58b174;
+      font-size: 1.3em;
+      font-style: italic;
+      margin-bottom: 30px;
+    }
+
+    /* 按钮样式 */
+    .resonance-btn {
+      background: linear-gradient(90deg, #2d5a3d 0%, #58b174 100%);
+      border: none;
+      border-radius: 10px;
+      padding: 20px 50px;
+      color: white;
+      font-size: 1.6em;
+      font-weight: bold;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(88, 177, 116, 0.3);
+    }
+
+    .resonance-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(88, 177, 116, 0.4);
+    }
+
+    .resonance-btn::before,
+    .resonance-btn::after {
+      content: '⚡';
+      color: #58b174;
+      font-size: 0.8em;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .resonance-btn::before {
+      left: 15px;
+    }
+
+    .resonance-btn::after {
+      right: 15px;
+    }
+
+    /* 倒计时页面 */
+    #countdown {
+      background: rgba(20, 20, 20, 0.9);
+      backdrop-filter: blur(10px);
+    }
+
+    #countText {
+      color: #58b174;
+      font-size: 8em;
+      font-weight: bold;
+      text-shadow: 0 0 30px rgba(88, 177, 116, 0.5);
+      animation: countdownPulse 1s ease-in-out;
+    }
+
+    @keyframes countdownPulse {
+      0% { transform: scale(0.5); opacity: 0; }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    /* 问题页面样式 */
+    .question-screen {
+      background: #080d15;
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 1000px;
+      width: 100%;
+      text-align: center;
+      border: 2px solid #1b5a4b;
+      position: relative;
+    }
+
+    /* 进度条容器 */
+    .progress-container {
+      position: absolute;
+      top: -25px;
+      left: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* 进度条 */
+    .progress-bar {
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 3px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: #14b8a4;
+      border-radius: 3px;
+      transition: width 0.3s ease;
+    }
+
+    /* 进度文本 */
+    .progress-text {
+      color: #cccccc;
+      font-size: 0.8em;
+      font-weight: 500;
+    }
+
+    /* 魔法水晶球 */
+    .crystal-ball-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+
+    .crystal-ball {
+      width: 80px;
+      height: 80px;
+      background: radial-gradient(circle at 30% 30%, rgba(88, 177, 116, 0.8), rgba(88, 177, 116, 0.3));
+      border-radius: 50%;
+      position: relative;
+      box-shadow: 
+        0 0 30px rgba(88, 177, 116, 0.6),
+        inset 0 0 20px rgba(255, 255, 255, 0.1);
+      animation: crystalGlow 3s ease-in-out infinite;
+      overflow: hidden;
+    }
+
+    /* 水晶球内的图标 */
+    .crystal-icon {
+      position: absolute;
+      font-size: 1.2em;
+      color: white;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+      opacity: 0;
+      animation: iconAppear 1s ease-in-out forwards;
+      animation-fill-mode: forwards;
+    }
+
+    @keyframes iconAppear {
+      0% {
+        opacity: 0;
+        transform: scale(0);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.3);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    /* 图标位置 */
+    .crystal-icon:nth-child(1) { top: 15%; left: 20%; }
+    .crystal-icon:nth-child(2) { top: 15%; right: 20%; }
+    .crystal-icon:nth-child(3) { top: 50%; left: 15%; }
+    .crystal-icon:nth-child(4) { top: 50%; right: 15%; }
+    .crystal-icon:nth-child(5) { bottom: 20%; left: 50%; transform: translateX(-50%); }
+
+    /* 水晶球发光特效 */
+    .crystal-ball.intense-glow {
+      animation: intenseGlow 2s ease-in-out;
+    }
+
+    @keyframes intenseGlow {
+      0% { 
+        box-shadow: 
+          0 0 30px rgba(88, 177, 116, 0.6),
+          inset 0 0 20px rgba(255, 255, 255, 0.1);
+      }
+      50% { 
+        box-shadow: 
+          0 0 80px rgba(88, 177, 116, 1),
+          0 0 120px rgba(88, 177, 116, 0.8),
+          inset 0 0 40px rgba(255, 255, 255, 0.3);
+        transform: scale(1.1);
+      }
+      100% { 
+        box-shadow: 
+          0 0 30px rgba(88, 177, 116, 0.6),
+          inset 0 0 20px rgba(255, 255, 255, 0.1);
+        transform: scale(1);
+      }
+    }
+
+    .crystal-ball::before {
+      content: '';
+      position: absolute;
+      top: 20%;
+      left: 25%;
+      width: 15px;
+      height: 15px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .crystal-ball::after {
+      content: '';
+      position: absolute;
+      bottom: 30%;
+      right: 20%;
+      width: 10px;
+      height: 10px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+    }
+
+    @keyframes crystalGlow {
+      0%, 100% { 
+        box-shadow: 
+          0 0 30px rgba(88, 177, 116, 0.6),
+          inset 0 0 20px rgba(255, 255, 255, 0.1);
+      }
+      50% { 
+        box-shadow: 
+          0 0 50px rgba(88, 177, 116, 0.8),
+          inset 0 0 30px rgba(255, 255, 255, 0.2);
+      }
+    }
+
+    .crystal-stand {
+      width: 40px;
+      height: 12px;
+      background: linear-gradient(90deg, #2d5a3d, #58b174);
+      border-radius: 6px;
+      margin-top: 8px;
+      box-shadow: 0 4px 15px rgba(88, 177, 116, 0.3);
+    }
+
+    .question-screen h2 {
+      color: #58b174;
+      font-size: 3em;
+      margin-bottom: 25px;
+    }
+
+    .question-screen p {
+      color: #ffffff;
+      font-size: 1.8em;
+      margin-bottom: 35px;
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .option-btn {
+      background: #080c13;
+      border: 2px solid #374151;
+      border-radius: 10px;
+      padding: 20px 25px;
+      color: #ffffff;
+      font-size: 1.4em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .option-icon {
+      font-size: 1.8em;
+      min-width: 40px;
+      text-align: center;
+      text-shadow: 0 0 10px currentColor;
+    }
+
+    .option-btn:hover {
+      background: #0c111b;
+      border-color: #58b174;
+      border-width: 2px;
+      transform: translateX(5px);
+    }
+
+    /* 生成页面 */
+    #generating {
+      background: rgba(20, 20, 20, 0.9);
+      backdrop-filter: blur(10px);
+    }
+
+    #generating h2 {
+      color: #58b174;
+      font-size: 3em;
+      animation: generatingPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes generatingPulse {
+      0%, 100% { opacity: 0.7; }
+      50% { opacity: 1; }
+    }
+
+    /* 结果页面 */
+    #result {
+      background: rgba(20, 20, 20, 0.9);
+      backdrop-filter: blur(10px);
+    }
+
+    #result h2 {
+      color: #58b174;
+      font-size: 3em;
+      margin-bottom: 35px;
+    }
+
+    #poemText {
+      color: #cccccc;
+      font-size: 1.6em;
+      line-height: 1.8;
+      white-space: pre-wrap;
+      text-align: left;
+      background: rgba(88, 177, 116, 0.1);
+      padding: 25px;
+      border-radius: 10px;
+      border: 1px solid rgba(88, 177, 116, 0.3);
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Welcome Page -->
+<div class="screen active" id="welcome">
+  <div class="modal">
+    <div class="top-icons">
+      <span class="icon">&lt; &gt;</span>
+      <span class="icon">★</span>
+    </div>
+    <!-- Countdown Page -->
+    <h1>Poetic Mind</h1>
+    <p class="subtitle">Unlocking the frequencies of your mood</p>
+    <p class="subtitle-italic">Where every pulse creates a verse</p>
+    <p class="instruction">Place your left hand upon the sensors</p>
+    <div class="sensor-area">
+      <div class="sensor-outer"></div>
+      <div class="sensor-inner"></div>
+      <div class="sensor-center"></div>
+    </div>
+    <p class="status-text">Initiating bio-feedback scan...</p>
+    <button class="resonance-btn" onclick="startCountdown()">BEGIN RESONANCE</button>
+  </div>
+</div>
+
+<!-- Countdown Page -->
+<div class="screen" id="countdown">
+  <h2 id="countText">3</h2>
+</div>
+
+<!-- Q1 -->
+<div class="screen" id="q1">
+  <div class="question-screen">
+    <div class="progress-container">
+      <div class="progress-bar">
+        <div class="progress-fill" style="width: 20%;"></div>
+      </div>
+    </div>
+    <div class="crystal-ball-container">
+      <div class="crystal-ball"></div>
+      <div class="crystal-stand"></div>
+    </div>
+    <p>How are you feeling right now?</p>
+    <div class="options">
+      <button class="option-btn" onclick="selectAnswer(1,'A')">
+        <span class="option-icon" style="color: #58b174;">☪</span>
+        <span>Peaceful and content.</span>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(1,'B')">
+        <span class="option-icon" style="color: #58b174;">★</span>
+        <span>Happy and energetic.</span>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(1,'C')">
+        <span class="option-icon" style="color: #58b174;">☁</span>
+        <span>A little sad or thoughtful.</span>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(1,'D')">
+        <span class="option-icon" style="color: #58b174;">🗺</span>
+        <span>Curious and adventurous.</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Q2 -->
+<div class="screen" id="q2">
+  <div class="question-screen">
+    <div class="progress-container">
+      <div class="progress-bar">
+        <div class="progress-fill" style="width: 40%;"></div>
+      </div>
+    </div>
+    <div class="crystal-ball-container">
+      <div class="crystal-ball"></div>
+      <div class="crystal-stand"></div>
+    </div>
+    <p>Which landscape best reflects your current state of mind?</p>
+    <div class="options">
+      <button class="option-btn" onclick="selectAnswer(2,'A')">
+        <span class="option-icon" style="color: #58b174;">❁</span>
+        <span>A quiet, sunlit forest.</span>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(2,'B')">
+        <span class="option-icon" style="color: #58b174;">✧</span>
+        <span>A bustling, vibrant city at night.</span>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(2,'C')">
+        <span class="option-icon" style="color: #58b174;">◒ </span>
+        <span>A calm, misty coastline.</span>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(2,'D')">
+        <span class="option-icon" style="color: #58b174;">▲</span>
+        <span>A looming mountain scape.</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Q3 -->
+<div class="screen" id="q3">
+  <div class="question-screen">
+    <div class="progress-container">
+      <div class="progress-bar">
+        <div class="progress-fill" style="width: 60%;"></div>
+      </div>
+    </div>
+    <div class="crystal-ball-container">
+      <div class="crystal-ball"></div>
+      <div class="crystal-stand"></div>
+    </div>
+    <p>If your feelings were a sound, what would they be?</p>
+    <div class="options">
+      <button class="option-btn" onclick="selectAnswer(3,'A')">
+        <span class="option-icon" style="color: #58b174;">☂</span>
+        <span>The gentle rhythm of rain on a window.</span>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(3,'B')">
+        <span class="option-icon" style="color: #58b174;">♫</span>
+        <span>A joyful, upbeat melody.</span>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(3,'C')">
+        <span class="option-icon" style="color: #58b174;">☾</span>
+        <span>The quiet hum of a sleeping city.</span>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(3,'D')">
+        <span class="option-icon" style="color: #58b174;">⚡</span>
+        <span>The sound of distant, rolling thunder.</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Q4 -->
+<div class="screen" id="q4">
+  <div class="question-screen">
+    <div class="progress-container">
+      <div class="progress-bar">
+        <div class="progress-fill" style="width: 80%;"></div>
+      </div>
+    </div>
+    <div class="crystal-ball-container">
+      <div class="crystal-ball"></div>
+      <div class="crystal-stand"></div>
+    </div>
+    <p>Choose a color that best represents your mood today.</p>
+    <div class="options">
+      <button class="option-btn" onclick="selectAnswer(4,'A')">
+        <span class="option-icon" style="color: #58b174;">♛</span>
+        <span>Soft, warm yellows and golds.</span>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(4,'B')">
+        <span class="option-icon" style="color: #58b174;">↓</span>
+        <span>Deep, contemplative blues and purples.</span>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(4,'C')">
+        <span class="option-icon" style="color: #58b174;">●</span>
+        <span>Bright, energetic reds and oranges.</span>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(4,'D')">
+        <span class="option-icon" style="color: #58b174;">☀</span>
+        <span>Muted, earthy greens and browns.</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Q5 -->
+<div class="screen" id="q5">
+  <div class="question-screen">
+    <div class="progress-container">
+      <div class="progress-bar">
+        <div class="progress-fill" style="width: 100%;"></div>
+      </div>
+    </div>
+    <div class="crystal-ball-container">
+      <div class="crystal-ball"></div>
+      <div class="crystal-stand"></div>
+    </div>
+    <p>What kind of story would you like your poem to tell?</p>
+    <div class="options">
+      <button class="option-btn" onclick="selectAnswer(5,'A')">
+        <span class="option-icon" style="color: #58b174;">♡</span>
+        <span>A story of quiet reflection and memory.</span>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(5,'B')">
+        <span class="option-icon" style="color: #58b174;">☆</span>
+        <span>A celebration of a simple, beautiful moment.</span>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(5,'C')">
+        <span class="option-icon" style="color: #58b174;">⚙</span>
+        <span>An exploration of a deep and complex emotion.</span>
+      </button>
+      <button class="option-btn" onclick="selectAnswer(5,'D')">
+        <span class="option-icon" style="color: #58b174;">■</span>
+        <span>A tale of adventure and the unknown.</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Loading Page -->
+<div class="screen" id="generating">
+  <h2>Your poem is compiling...</h2>
+</div>
+
+<!-- Result Page -->
+<div class="screen" id="result">  
+  <div class="question-screen" style="max-width: 900px;">
+    <h2>Your personalized poem:</h2>
+    <pre id="poemText"></pre>
+    
+    <!-- New Try Again Button -->
+    <!--<button class="resonance-btn" style="margin-top: 30px;" onclick="location.reload()">Try Again</button>-->
+  </div>
+</div>
+
+
+<script>
+let answers = {};
+let currentQ = 0;
+let selectedIcons = []; // 存储选中的图标
+
+// 图标映射表
+const iconMap = {
+  '1A': '☪', // 伊斯兰新月
+  '1B': '★', // 星星
+  '1C': '☁', // 云朵
+  '1D': '🗺', // 地图
+  '2A': '❁', // 花朵
+  '2B': '✧', // 星星
+  '2C': '◒', // 圆形
+  '2D': '▲', // 三角形
+  '3A': '☂', // 雨伞
+  '3B': '♫', // 音符
+  '3C': '☾', // 月亮
+  '3D': '⚡', // 闪电
+  '4A': '♛', // 皇冠
+  '4B': '↓', // 箭头
+  '4C': '●', // 实心圆
+  '4D': '☀', // 太阳
+  '5A': '♡', // 爱心
+  '5B': '☆', // 空心星
+  '5C': '⚙', // 齿轮
+  '5D': '■'  // 方块
+};
+
+function show(id) {
+  document.querySelectorAll('.screen').forEach(el => el.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+function startCountdown() {
+  console.log('Button clicked! Starting countdown...');
+  fetch('/start', {method: 'POST'});
+  show('countdown');
+  let count = 3;
+  const timer = setInterval(() => {
+    count--;
+    document.getElementById('countText').textContent = count;
+    if (count === 0) {
+      clearInterval(timer);
+      show('q1');
+    }
+  }, 1000);
+}
+
+function addIconToCrystalBall(questionNum, choice) {
+  const iconKey = questionNum + choice;
+  const icon = iconMap[iconKey];
+  
+  if (icon) {
+    selectedIcons.push(icon);
+    
+    // 为当前问题及后续问题的水晶球添加图标
+    for (let i = questionNum; i <= 5; i++) {
+      const crystalBall = document.querySelector(`#q${i} .crystal-ball`);
+      if (crystalBall) {
+        // 清除之前的图标
+        const existingIcons = crystalBall.querySelectorAll('.crystal-icon');
+        existingIcons.forEach(icon => icon.remove());
+        
+        // 添加所有已选择的图标，但只为新添加的图标设置动画
+        selectedIcons.forEach((selectedIcon, index) => {
+          const iconElement = document.createElement('div');
+          iconElement.className = 'crystal-icon';
+          iconElement.textContent = selectedIcon;
+          
+          // 只为新添加的图标（最后一个）设置动画
+          if (index === selectedIcons.length - 1) {
+            iconElement.style.animationDelay = '0s';
+          } else {
+            // 对于之前已存在的图标，直接设置为最终状态
+            iconElement.style.animation = 'none';
+            iconElement.style.opacity = '1';
+            iconElement.style.transform = 'scale(1)';
+          }
+          
+          crystalBall.appendChild(iconElement);
+        });
+        
+        // 触发发光特效
+        crystalBall.classList.add('intense-glow');
+        setTimeout(() => {
+          crystalBall.classList.remove('intense-glow');
+        }, 2000);
+      }
+    }
+  }
+}
+
+function generateDefaultPoem(answers) {
+  // 根据用户的选择生成个性化的默认诗歌
+  const themes = {
+    'Q1': {
+      'A': 'peaceful',
+      'B': 'joyful', 
+      'C': 'contemplative',
+      'D': 'adventurous'
+    },
+    'Q2': {
+      'A': 'nature',
+      'B': 'urban',
+      'C': 'serene',
+      'D': 'majestic'
+    },
+    'Q3': {
+      'A': 'gentle',
+      'B': 'melodic',
+      'C': 'quiet',
+      'D': 'powerful'
+    },
+    'Q4': {
+      'A': 'warm',
+      'B': 'deep',
+      'C': 'vibrant',
+      'D': 'earthy'
+    },
+    'Q5': {
+      'A': 'reflective',
+      'B': 'celebratory',
+      'C': 'explorative',
+      'D': 'adventurous'
+    }
+  };
+
+  const mood = themes.Q1[answers.Q1] || 'peaceful';
+  const landscape = themes.Q2[answers.Q2] || 'nature';
+  const sound = themes.Q3[answers.Q3] || 'gentle';
+  const color = themes.Q4[answers.Q4] || 'warm';
+  const story = themes.Q5[answers.Q5] || 'reflective';
+
+  // 更丰富的诗歌库
+  const poemLibrary = {
+    peaceful: {
+      nature: {
+        gentle: {
+          warm: {
+            reflective: `In the quiet morning light,\nSoft whispers of the breeze,\nNature's gentle embrace,\nBrings inner peace.`
+          },
+          deep: {
+            reflective: `Golden sunlight filters through,\nAncient trees stand tall and true,\nIn this sacred space of calm,\nTime slows down like morning dew.`
+          }
+        }
+      },
+      serene: {
+        quiet: {
+          deep: {
+            reflective: `Mist rolls gently over hills,\nOcean waves in rhythmic thrills,\nIn this moment, pure and still,\nPeace flows like a mountain rill.`
+          }
+        }
+      }
+    },
+    joyful: {
+      urban: {
+        melodic: {
+          vibrant: {
+            celebratory: `City lights dance and shine,\nMusic fills the air divine,\nJoy in every moment shared,\nLife is beautiful and rare.`
+          }
+        }
+      }
+    },
+    contemplative: {
+      serene: {
+        quiet: {
+          deep: {
+            explorative: `Thoughts drift like clouds above,\nIn the quiet night of love,\nDeep within the soul's embrace,\nWisdom takes its rightful place.`
+          }
+        }
+      }
+    },
+    adventurous: {
+      majestic: {
+        powerful: {
+          earthy: {
+            adventurous: `Mountains call your name aloud,\nAdventure waits beyond the cloud,\nCourage burns within your heart,\nStories yet to play their part.`
+          }
+        }
+      }
+    }
+  };
+
+  // 尝试找到完全匹配的诗歌
+  let poem = poemLibrary[mood]?.[landscape]?.[sound]?.[color]?.[story];
+  
+  // 如果没有完全匹配，尝试部分匹配
+  if (!poem) {
+    // 基于主要情绪生成诗歌
+    const moodPoems = {
+      peaceful: `In the gentle morning light,\nSoft whispers of the breeze,\nNature's gentle embrace,\nBrings inner peace.`,
+      joyful: `Joy bubbles like a spring,\nLaughter fills the air,\nEvery moment is a gift,\nLife beyond compare.`,
+      contemplative: `Thoughts drift like autumn leaves,\nIn the quiet of the mind,\nDeep within the soul's embrace,\nWisdom we are meant to find.`,
+      adventurous: `Mountains call your name,\nAdventure waits ahead,\nCourage in your heart,\nStories yet untold.`
+    };
+    
+    poem = moodPoems[mood] || `Based on your choices,\nA unique poem unfolds,\nReflecting your spirit,\nIn words yet untold.`;
+  }
+
+  return poem;
+}
+
+function selectAnswer(qNum, choice) {
+  // 添加图标到水晶球
+  addIconToCrystalBall(qNum, choice);
+  
+  answers['Q' + qNum] = choice;
+  currentQ++;
+  
+  // 延迟一下再跳转，让用户看到选中效果和发光特效
+  setTimeout(() => {
+    if (currentQ < 5) {
+      show('q' + (currentQ + 1));
+    } else {
+      show('generating');
+      
+      // 在生成页面添加五个图标到水晶球
+      const generatingCrystalBall = document.getElementById('generating-crystal-ball');
+      const generatingCrystalIconsContainer = document.getElementById('generating-crystal-icons-container');
+      if (generatingCrystalBall && generatingCrystalIconsContainer && selectedIcons.length > 0) {
+        // 清除现有图标
+        generatingCrystalIconsContainer.innerHTML = '';
+        
+        // 添加所有五个图标到容器中
+        selectedIcons.forEach((icon, index) => {
+          const iconElement = document.createElement('div');
+          iconElement.className = 'generating-crystal-icon';
+          iconElement.textContent = icon;
+          generatingCrystalIconsContainer.appendChild(iconElement);
+        });
+      }
+      
+      // 停留2秒后处理诗歌生成和页面跳转
+      setTimeout(() => {
+        fetch('/submit_answers', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ answers: answers })
+        })
+        .then(res => {
+          console.log('Response status:', res.status);
+          return res.json();
+        })
+        .then(data => {
+          console.log('Response data:', data);
+          if (data && data.poem) {
+            document.getElementById('poemText').textContent = data.poem;
+          } else {
+            console.log('No poem data in response, using default');
+            const defaultPoem = generateDefaultPoem(answers);
+            document.getElementById('poemText').textContent = defaultPoem;
+          }
+          console.log('Showing result page');
+          show('result');
+
+          // 强制确保结果页面显示
+          setTimeout(() => {
+            if (!document.getElementById('result').classList.contains('active')) {
+              console.log('Forcing result page display');
+              show('result');
+            }
+          }, 100);
+
+          // ✅ 2秒后自动显示 Try Again 按钮
+          setTimeout(() => {
+            const btn = document.createElement('button');
+            btn.className = 'resonance-btn';
+            btn.textContent = 'Try Again';
+            btn.onclick = () => location.reload();
+            document.querySelector('#result .question-screen').appendChild(btn);
+          }, 2000);
+        })
+        .catch(error => {
+          console.error('Error fetching poem:', error);
+          // 如果出错，显示默认诗歌
+          const defaultPoem = generateDefaultPoem(answers);
+          document.getElementById('poemText').textContent = defaultPoem;
+          show('result');
+
+          // 2秒后自动显示 Try Again 按钮
+          setTimeout(() => {
+            const btn = document.createElement('button');
+            btn.className = 'resonance-btn';
+            btn.textContent = 'Try Again';
+            btn.onclick = () => location.reload();
+            document.querySelector('#result .question-screen').appendChild(btn);
+          }, 2000);
+        });
+      }, 2000); // 生成页面停留2秒
+    }
+  }, 1000); // 增加延迟时间，让用户看到发光特效
+}
+</script>
+
+</body>
+</html>
