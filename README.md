@@ -9,26 +9,33 @@ Place your left hand on the sensor and answer a few gentle questions on the scre
 
 ## UI pages
 ![storyboard1](images/UIpage1.png)
+
 home page
 
 ![storyboard1](images/UIpage2.png)
+
 countdown page
 
 ![storyboard1](images/UIpage3.png)
+
 question page
 
 ![storyboard1](images/UIpage4.png)
+
 waiting page
 
 ![storyboard1](images/UIpage5.png)
+
 poetry display page
 
 
 ## Hardware Components
 Components list:
 ![storyboard1](images/HardwareComponents.png)
+
 Wiring method:
 ![storyboard1](images/WiringDiagram.png)
+
 Schematic diagram:
 ![storyboard1](images/SchematicDiagram.png)
 
@@ -50,7 +57,7 @@ Activate the virtual environment (In future, before you run the â€œraspberryPiâ€
 ```
 source venv/bin/activate
 ```
-install dependencies
+Install dependencies
 ```
 source venv/bin/activate
 ```
