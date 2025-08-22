@@ -9,8 +9,7 @@ Place your left hand on the sensor and answer a few gentle questions on the scre
 
 ## UI pages
 home page:
-
-![storyboard1](images/UIpage1.png)
+<img src="images/UIpage1.png" alt="storyboard1" width="300"/>
 
 
 countdown page:
