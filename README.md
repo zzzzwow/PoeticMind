@@ -9,22 +9,27 @@ Place your left hand on the sensor and answer a few gentle questions on the scre
 
 ## UI pages
 home page:
+
 ![storyboard1](images/UIpage1.png)
 
 
 countdown page:
+
 ![storyboard1](images/UIpage2.png)
 
 
 question page:
+
 ![storyboard1](images/UIpage3.png)
 
 
 waiting page:
+
 ![storyboard1](images/UIpage4.png)
 
 
 poetry display page:
+
 ![storyboard1](images/UIpage5.png)
 
 
