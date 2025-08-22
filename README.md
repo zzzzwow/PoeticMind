@@ -15,21 +15,21 @@ home page:
 
 countdown page:
 
-<img src="images/UIpage2.png" alt="storyboard1" width="500"/>
+<img src="images/UIpage2.png" alt="storyboard1" width="600"/>
 
 question page:
 
-<img src="images/UIpage3.png" alt="storyboard1" width="800"/>
+<img src="images/UIpage3.png" alt="storyboard1" width="600"/>
 
 
 waiting page:
 
-<img src="images/UIpage4.png" alt="storyboard1" width="500"/>
+<img src="images/UIpage4.png" alt="storyboard1" width="600"/>
 
 
 poetry display page:
 
-<img src="images/UIpage5.png" alt="storyboard1" width="500"/>
+<img src="images/UIpage5.png" alt="storyboard1" width="600"/>
 
 
 
