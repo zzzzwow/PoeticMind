@@ -8,25 +8,25 @@ Place your left hand on the sensor and answer a few gentle questions on the scre
 
 
 ## UI pages
+home page:
 ![storyboard1](images/UIpage1.png)
 
-home page
 
+countdown page:
 ![storyboard1](images/UIpage2.png)
 
-countdown page
 
+question page:
 ![storyboard1](images/UIpage3.png)
 
-question page
 
+waiting page:
 ![storyboard1](images/UIpage4.png)
 
-waiting page
 
+poetry display page:
 ![storyboard1](images/UIpage5.png)
 
-poetry display page
 
 
 ## Hardware Components
