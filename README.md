@@ -39,7 +39,7 @@ poetry display page:
 
 ## Hardware Components
 Components list:
-![storyboard1](images/HardwareComponents.png)
+<img src="images/HardwareComponents.png" alt="storyboard1" width="900"/>
 
 Wiring method:
 
@@ -53,12 +53,15 @@ Schematic diagram:
 
 
 ## Installation 💻🚀
-Step 1: Upload the “Arduino33” code to the Arduino Nano 33 IoT board. At this time, the Arduino board is connected to the MAX30102 sensor, GSR sensor, and printer.
+⭐Step 1: Upload the “Arduino33” code to the Arduino Nano 33 IoT board. At this time, the Arduino board is connected to the MAX30102 sensor, GSR sensor, and printer.
 
-Step 2: Connecting the Arduino part to the Raspberry Pi via a serial port, then turning on the power, configuring the Wi-Fi network for the Raspberry Pi.
-Step 3: Create a new folder named poetry_app on the Raspberry Pi and place the raspberryPi.py file inside it. Within this folder, create another folder named “templates” and upload the “index.html” code to this folder. Note: The path to “index.html” within the Raspberry Pi folder is: poetry_app/templates/index.html
-Step 4: Set up a virtual environment and install dependencies
+⭐Step 2: Connecting the Arduino part to the Raspberry Pi via a serial port, then turning on the power, configuring the Wi-Fi network for the Raspberry Pi.
+
+⭐Step 3: Create a new folder named poetry_app on the Raspberry Pi and place the raspberryPi.py file inside it. Within this folder, create another folder named “templates” and upload the “index.html” code to this folder. Note: The path to “index.html” within the Raspberry Pi folder is: poetry_app/templates/index.html
+
+⭐Step 4: Set up a virtual environment and install dependencies
 Since the Raspberry Pi system prevents system dependencies from being broken, installing Flask directly may be prohibited. This can be resolved by creating a virtual environment in Raspberry Pi. Enter the following command in Raspberry Pi to set up a virtual environment:
+
 ```
 cd poetry_app
 ```
@@ -77,10 +80,10 @@ source venv/bin/activate
 ```
 pip install pyserial openai
 ```
-Step 5: running 'raspberryPi.py'
+⭐Step 5: running 'raspberryPi.py'
 ```
 python raspberryPi.py
 ```
-Step 6: visiting http://localhost:5000 directly in a raspberry browser
+⭐Step 6: visiting http://localhost:5000 directly in a raspberry browser
 
 Done!🎉🎉🎉🍾
