@@ -8,6 +8,7 @@ Place your left hand on the sensor and answer a few gentle questions on the scre
 
 
 
+
 ## UI pages
 home page:
 
@@ -35,6 +36,7 @@ poetry display page:
 
 
 
+
 ## Hardware Components
 Components list:
 ![storyboard1](images/HardwareComponents.png)
@@ -46,6 +48,7 @@ Wiring method:
 Schematic diagram:
 
 ![storyboard1](images/SchematicDiagram.png)
+
 
 
 
@@ -78,3 +81,5 @@ Step 5: running 'raspberryPi.py'
 python raspberryPi.py
 ```
 Step 6: visiting http://localhost:5000 directly in a raspberry browser
+
+Done!🎉🎉🎉🍾
