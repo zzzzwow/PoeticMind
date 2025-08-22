@@ -7,6 +7,7 @@ A Personalised Poetry Generation System Integrating Physiological Signals, Affec
 Place your left hand on the sensor and answer a few gentle questions on the screen. The system senses your heartbeat and skin response to estimate your emotional state. It combines this with your answers to write a personal poem for you, echoing the rhythms within you.
 
 
+
 ## UI pages
 home page:
 
@@ -33,6 +34,7 @@ poetry display page:
 
 
 
+
 ## Hardware Components
 Components list:
 ![storyboard1](images/HardwareComponents.png)
@@ -44,6 +46,7 @@ Wiring method:
 Schematic diagram:
 
 ![storyboard1](images/SchematicDiagram.png)
+
 
 
 ## Installation 💻🚀
