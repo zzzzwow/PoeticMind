@@ -10,26 +10,26 @@ Place your left hand on the sensor and answer a few gentle questions on the scre
 ## UI pages
 home page:
 
-<img src="images/UIpage1.png" alt="storyboard1" width="400" height="1500"/>
+<img src="images/UIpage1.png" alt="storyboard1" width="500" height="1500"/>
 
 
 countdown page:
 
-<img src="images/UIpage2.png" alt="storyboard1" width="400" height="1500"/>
+<img src="images/UIpage2.png" alt="storyboard1" width="500"/>
 
 question page:
 
-<img src="images/UIpage3.png" alt="storyboard1" width="400" height="1800"/>
+<img src="images/UIpage3.png" alt="storyboard1" width="800"/>
 
 
 waiting page:
 
-<img src="images/UIpage4.png" alt="storyboard1" width="400" height="2000"/>
+<img src="images/UIpage4.png" alt="storyboard1" width="500"/>
 
 
 poetry display page:
 
-<img src="images/UIpage5.png" alt="storyboard1" width="400" height="2000"/>
+<img src="images/UIpage5.png" alt="storyboard1" width="500"/>
 
 
 
