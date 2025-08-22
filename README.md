@@ -1,7 +1,7 @@
 # PoeticMind
 A Personalised Poetry Generation System Integrating Physiological Signals, Affective Self-Report Measures and Large Language Model.
 
-<img src="images/device.png" alt="storyboard1" width="300" height="200"/>
+<img src="images/device.png" alt="storyboard1" width="500"/>
 
 ## How to use?
 Place your left hand on the sensor and answer a few gentle questions on the screen. The system senses your heartbeat and skin response to estimate your emotional state. It combines this with your answers to write a personal poem for you, echoing the rhythms within you.
@@ -10,7 +10,7 @@ Place your left hand on the sensor and answer a few gentle questions on the scre
 ## UI pages
 home page:
 
-<img src="images/UIpage1.png" alt="storyboard1" width="300" height="300"/>
+<img src="images/UIpage1.png" alt="storyboard1" width="300" height="600"/>
 
 
 countdown page:
