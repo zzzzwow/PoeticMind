@@ -3,35 +3,38 @@ A Personalised Poetry Generation System Integrating Physiological Signals, Affec
 
 <img src="images/device.png" alt="storyboard1" width="550"/>
 
+
 ## How to use?
 Place your left hand on the sensor and answer a few gentle questions on the screen. The system senses your heartbeat and skin response to estimate your emotional state. It combines this with your answers to write a personal poem for you, echoing the rhythms within you.
 
 
 
 
+
 ## UI pages
-home page:
+1/5 home page:
 
 <img src="images/UIpage1.png" alt="storyboard1" width="750"/>
 
 
-countdown page:
+2/5 countdown page:
 
 <img src="images/UIpage2.png" alt="storyboard1" width="750"/>
 
-question page:
+3/5 question page:
 
 <img src="images/UIpage3.png" alt="storyboard1" width="750"/>
 
 
-waiting page:
+4/5 waiting page:
 
 <img src="images/UIpage4.png" alt="storyboard1" width="750"/>
 
 
-poetry display page:
+5/5 poetry display page:
 
 <img src="images/UIpage5.png" alt="storyboard1" width="750"/>
+
 
 
 
@@ -48,6 +51,7 @@ Wiring method:
 Schematic diagram:
 
 ![storyboard1](images/SchematicDiagram.png)
+
 
 
 
