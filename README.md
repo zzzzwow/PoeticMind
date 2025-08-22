@@ -1,7 +1,7 @@
 # PoeticMind
 A Personalised Poetry Generation System Integrating Physiological Signals, Affective Self-Report Measures and Large Language Model.
 
-<img src="images/device.png" alt="storyboard1" width="500"/>
+<img src="images/device.png" alt="storyboard1" width="550"/>
 
 ## How to use?
 Place your left hand on the sensor and answer a few gentle questions on the screen. The system senses your heartbeat and skin response to estimate your emotional state. It combines this with your answers to write a personal poem for you, echoing the rhythms within you.
@@ -12,26 +12,26 @@ Place your left hand on the sensor and answer a few gentle questions on the scre
 ## UI pages
 home page:
 
-<img src="images/UIpage1.png" alt="storyboard1" width="700"/>
+<img src="images/UIpage1.png" alt="storyboard1" width="750"/>
 
 
 countdown page:
 
-<img src="images/UIpage2.png" alt="storyboard1" width="700"/>
+<img src="images/UIpage2.png" alt="storyboard1" width="750"/>
 
 question page:
 
-<img src="images/UIpage3.png" alt="storyboard1" width="700"/>
+<img src="images/UIpage3.png" alt="storyboard1" width="750"/>
 
 
 waiting page:
 
-<img src="images/UIpage4.png" alt="storyboard1" width="700"/>
+<img src="images/UIpage4.png" alt="storyboard1" width="750"/>
 
 
 poetry display page:
 
-<img src="images/UIpage5.png" alt="storyboard1" width="700"/>
+<img src="images/UIpage5.png" alt="storyboard1" width="750"/>
 
 
 
@@ -39,7 +39,7 @@ poetry display page:
 
 ## Hardware Components
 Components list:
-<img src="images/HardwareComponents.png" alt="storyboard1" width="800"/>
+<img src="images/HardwareComponents.png" alt="storyboard1" width="750"/>
 
 Wiring method:
 
