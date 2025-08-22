@@ -12,26 +12,26 @@ Place your left hand on the sensor and answer a few gentle questions on the scre
 ## UI pages
 home page:
 
-<img src="images/UIpage1.png" alt="storyboard1" width="600"/>
+<img src="images/UIpage1.png" alt="storyboard1" width="700"/>
 
 
 countdown page:
 
-<img src="images/UIpage2.png" alt="storyboard1" width="600"/>
+<img src="images/UIpage2.png" alt="storyboard1" width="700"/>
 
 question page:
 
-<img src="images/UIpage3.png" alt="storyboard1" width="600"/>
+<img src="images/UIpage3.png" alt="storyboard1" width="700"/>
 
 
 waiting page:
 
-<img src="images/UIpage4.png" alt="storyboard1" width="600"/>
+<img src="images/UIpage4.png" alt="storyboard1" width="700"/>
 
 
 poetry display page:
 
-<img src="images/UIpage5.png" alt="storyboard1" width="600"/>
+<img src="images/UIpage5.png" alt="storyboard1" width="700"/>
 
 
 
@@ -39,7 +39,7 @@ poetry display page:
 
 ## Hardware Components
 Components list:
-<img src="images/HardwareComponents.png" alt="storyboard1" width="900"/>
+<img src="images/HardwareComponents.png" alt="storyboard1" width="800"/>
 
 Wiring method:
 
