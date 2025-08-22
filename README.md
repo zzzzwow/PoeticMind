@@ -39,9 +39,11 @@ Components list:
 ![storyboard1](images/HardwareComponents.png)
 
 Wiring method:
+
 ![storyboard1](images/WiringDiagram.png)
 
 Schematic diagram:
+
 ![storyboard1](images/SchematicDiagram.png)
 
 
