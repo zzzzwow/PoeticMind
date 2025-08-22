@@ -10,7 +10,7 @@ Place your left hand on the sensor and answer a few gentle questions on the scre
 ## UI pages
 home page:
 
-<img src="images/UIpage1.png" alt="storyboard1" width="500" height="1500"/>
+<img src="images/UIpage1.png" alt="storyboard1" width="600"/>
 
 
 countdown page:
@@ -70,7 +70,7 @@ source venv/bin/activate
 ```
 pip install pyserial openai
 ```
-Step 5: running 'raspberryPi.pi'
+Step 5: running 'raspberryPi.py'
 ```
 python raspberryPi.py
 ```
