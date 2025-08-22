@@ -54,6 +54,7 @@ Schematic diagram:
 
 ## Installation 💻🚀
 Step 1: Upload the “Arduino33” code to the Arduino Nano 33 IoT board. At this time, the Arduino board is connected to the MAX30102 sensor, GSR sensor, and printer.
+
 Step 2: Connecting the Arduino part to the Raspberry Pi via a serial port, then turning on the power, configuring the Wi-Fi network for the Raspberry Pi.
 Step 3: Create a new folder named poetry_app on the Raspberry Pi and place the raspberryPi.py file inside it. Within this folder, create another folder named “templates” and upload the “index.html” code to this folder. Note: The path to “index.html” within the Raspberry Pi folder is: poetry_app/templates/index.html
 Step 4: Set up a virtual environment and install dependencies
